@@ -1,0 +1,7 @@
+server:
+    image: hapi-server
+    ports:
+    - "8080:9000"
+    volumes:
+        - ../server:/var/www/server
+    command: sh -c 'cd /var/www/server ; node_modules/.bin/nodemon index.js'
