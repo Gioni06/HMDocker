@@ -1,7 +1,20 @@
+database:
+    image: mongodb
+    environment:
+      - MONGODB_ROOT_PASSWORD=password123
+      - MONGODB_USERNAME=root
+      - MONGODB_PASSWORD=root123
+      - MONGODB_DATABASE=markdown
+    ports:
+      - "8081:27017"
+    volumes:
+      - /store:/bitnami/mongodb
 server:
     image: hapi-server
+    links:
+        - database
     ports:
-    - "8080:9000"
+        - "8080:9000"
     volumes:
         - ../server:/var/www/server
     command: sh -c 'cd /var/www/server ; node_modules/.bin/nodemon index.js'

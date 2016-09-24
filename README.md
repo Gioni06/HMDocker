@@ -20,6 +20,12 @@ This configuration assumes that you have the following folder structure:
  | -------- LICENSE
  | -------- README.md
 ```
+### Before you build the images
+There is a `pre-build.sh` file which installs dependencies
+To run pre-build script:
+- `sh pre-build.sh`
+
+This will download Bitnami's MongoDB image and create a `database` folder
 
 ### Build image
 
