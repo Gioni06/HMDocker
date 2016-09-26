@@ -18,6 +18,7 @@ This configuration assumes that you have the following folder structure:
  | -------- docker-compose.yml
  | -------- Dockerfile
  | -------- LICENSE
+ | -------- pre-build.sh
  | -------- README.md
 ```
 ### Before you build the images

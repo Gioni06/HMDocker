@@ -1,3 +1,5 @@
+redis:
+  image: bitnami/redis:latest
 database:
     image: mongodb
     environment:
@@ -11,8 +13,12 @@ database:
       - /store:/bitnami/mongodb
 server:
     image: hapi-server
+    environment:
+    - JWT_SECRET=YourSecretKey
+    - PORT=8081
     links:
         - database
+        - redis
     ports:
         - "8080:9000"
     volumes:
