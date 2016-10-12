@@ -1,3 +1,9 @@
+mongoclient: 
+    image: mongoclient/mongoclient
+    ports:
+    - "3000:3000"  
+    links: 
+    - database
 redis:
   image: bitnami/redis:latest
 database:
@@ -23,4 +29,4 @@ server:
         - "8080:9000"
     volumes:
         - ../server:/var/www/server
-    command: sh -c 'cd /var/www/server ; node_modules/.bin/nodemon index.js'
+    command: sh -c 'sleep 5; cd /var/www/server ; node_modules/.bin/nodemon index.js'
